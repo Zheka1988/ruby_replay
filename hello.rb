@@ -2,20 +2,24 @@
 # city = gets.chomp
 # city.upcase!
 # puts city
+#---------------------------------------------------
 
 # puts "What is your name?"
 # name = gets.chomp
 # puts "#{name}, HI!"
+#---------------------------------------------------
 
 # puts "V kakom godu ti rodilsya?"
 # year = gets.chomp
 # puts "#{name} privet! Tebe primerno #{2020-year.to_i} let."
+#----------------------------------------------------
 
 # puts "Integer please"
 # user_num = Integer(gets.chomp)
 # puts user_num.class
 # user_n = gets.chomp.to_i
 # puts user_n.class
+#----------------------------------------------------
 
 # puts "Enter a phrase you'd like to analyze: "
 # text = gets.chomp
@@ -29,8 +33,11 @@
 # frequencies.each do |word , count|
 #   puts word+" "+count.to_s  
 # end
+#----------------------------------------------------
+
 # ["ryan", "jane"].each {|string| puts "#{string[1..-1]} "}
 #----------------------------------------------------
+
 # movies = { matrix:5, shrek:3, zombie:5, rambo:2 }
 # puts "You can 'add', 'delete', 'display', 'update' movies."
 # choice = gets.chomp
@@ -71,24 +78,33 @@
 # 	else
 # 		puts "Error!"
 # end
-#-----------------------------
+#-------------------------------------------------
+
 # a = 5.12345
 # puts a.class
 # puts a.floor(3)
-#-----------------------------
-def max_element_lambda
-	l = lambda { return [1,2,3,4] }
-	array = l.call
-	return array.max
-end
-puts max_element_lambda
-puts "-------------"
+#-------------------------------------------------
 
-def max_element_proc
-	p = Proc.new { return [1,2,3,4] }
-	array = p.call # zdes' proishodit vozvrat
-	puts "Etot kod ne budet vipolnen"
-	return array.max 
-end
-print "#{max_element_proc} \n"
+# def max_element_lambda
+# 	l = lambda { return [1,2,3,4] }
+# 	array = l.call
+# 	return array.max
+# end
+# puts max_element_lambda
+# puts "-------------"
+#-------------------------------------------------
+
+# def lambda_demo(a_lambda)
+#   puts "I'm the method!"
+#   a_lambda.call
+# end
+# lambda_demo(lambda { puts "I'm the lambda!" })
+#-------------------------------------------------
+# def max_element_proc
+# 	p = Proc.new { return [1,2,3,4] }
+# 	array = p.call # zdes' proishodit vozvrat
+# 	puts "Etot kod ne budet vipolnen"
+# 	return array.max 
+# end
+# print "#{max_element_proc} \n"
 
