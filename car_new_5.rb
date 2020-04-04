@@ -1,8 +1,69 @@
-class Car
-  attr_reader :current_rpm
-  def initialize
-    @current_rpm  = 0
+module FuelTank
+  def fill_tank(level)
+    self.fuel_tank = level
   end
+
+  def fuel_level
+    self.fuel_tank
+  end
+  protected
+  attr_accessor :fuel_tank    
+end
+
+module Debugger
+  def self.included(base)
+    base.extend ClassMethods
+    base.send :include, InstanceMethods
+  end
+  module ClassMethods
+    def debug(log)
+      puts "!!!DEBUG #{log} !!!!"
+      # show_work
+    end 
+  end
+  module InstanceMethods
+    def debug(log)
+      self.class.debug(log)
+    end
+    def print_class
+      puts self.class
+    end
+  end
+end
+
+class Car
+  include FuelTank
+  # extend Debugger
+  # extend Debugger::ClassMethods
+  # include Debugger::InstanceMethods
+  include Debugger
+  attr_reader :current_rpm
+  @@instances = 0
+  # class << self
+  #   def description
+  #     puts "This is parent class for all car's"
+  #   end
+  # end
+  def self.instances
+    @@instances
+  end
+
+  # def self.debug(log)
+  #   puts "!!!DEBUG #{log} !!!!"
+  # end
+
+  debug 'Start interface'
+
+  def initialize
+    @@instances += 1
+    @current_rpm  = 0
+    debug 'initialize'
+  end
+
+  def show_work
+    puts "WORKed!"
+  end
+
   def start_engine
     start_engine! if engine_stopped?
     # set('rpm', 700) if rpm == 0
@@ -13,7 +74,9 @@ class Car
   end
 
   # private
+  debug 'End interface'
   protected
+
   attr_writer :current_rpm
   # INITIAL_RPM = 700
   def initial_rpm
@@ -55,5 +118,15 @@ class Driver
   def drive(car) #Duck Typing - utinnayz tipizaciya 
     car.start_engine
   end
+end
+
+class MotoBike
+  # extend Debugger  
+  # extend Debugger::ClassMethods
+  # include Debugger::InstanceMethods
+  # include Debugger
+  include FuelTank
+
+  # debug 'MotoBike class'
 end
 
