@@ -5,13 +5,10 @@ class Train
   include InstanceCounter
   include Manufacturer
   include Valid
-
   @@trains = {}
   NUMBER_FORMAT = /\A[а-яa-z0-9]{3}\-?[а-яa-z0-9]{2}\Z/ui.freeze
 
-  attr_reader :carriages, :type,
-              :speed, :number, :route
-
+  attr_reader :carriages, :type, :speed, :number, :route
   def self.find(number)
     @@trains[number]
   end
@@ -83,10 +80,10 @@ class Train
   end
 
   def remove_carriage(carriage)
-    @carriages.delete(carriage) if @speed == 0 && !@carriages.empty?
+    @carriages.delete(carriage) if @speed.zero? && !@carriages.empty?
   end
 
   def add_carriage(carriage)
-    @carriages << carriage if @speed == 0
+    @carriages << carriage if @speed.zero?
   end
 end

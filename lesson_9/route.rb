@@ -15,8 +15,13 @@ class Route
   end
 
   def add_station(station)
-    raise 'Нет существует такой станции или она уже включена в маршрут!' if station.class != Station || @stations.find { |stat| stat.name == station.name }
-    raise 'Данная станция включена в маршрут' if @stations.find { |stat| stat == station }
+    str = 'Нет существует такой станции или она уже включена в маршрут!'
+    raise str if station.class != Station || @stations.find do |stat|
+      stat.name == station.name
+    end
+    raise 'Данная станция включена в маршрут' if @stations.find do |stat|
+      stat == station
+    end
 
     @stations.insert(-2, station)
   rescue StandardError => e
@@ -28,12 +33,14 @@ class Route
       @stations.delete(station)
       show_stations
     else
-      puts 'The station can not be removed!!'
+      puts 'Эта станция не может быть удалена!'
     end
   end
 
   def show_stations
-    @stations.each.with_index(1) { |station, index| puts "Station number #{index} - #{station.name}" }
+    @stations.each.with_index(1) do |station, index|
+      puts "Station number #{index} - #{station.name}"
+    end
   end
 
   def change_number_route(number)

@@ -18,17 +18,17 @@ class Carriage
 
   def take_capacity(num)
     @occupied_capacity += num
-    @capacity -= num
   end
 
-  def get_free_capacity
-    capacity
+  def free_capacity
+    @capacity - @occupied_capacity
   end
 
   protected
 
   def validate!
-    raise "Вагон может быть пассажирским 'p' или грузовым 'c'" unless @array_type.include?(type) # if type != 'p' && type != 'c' # по логике должно быть или ||
+    str1 = "Вагон может быть пассажирским 'p' или грузовым 'c'"
+    raise  str1 unless @array_type.include?(type)
     raise 'Номер вагона состоит из 4 цифр' if number.to_s !~ NUMBER_FORMAT
   end
 end
