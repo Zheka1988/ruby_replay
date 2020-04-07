@@ -17,14 +17,13 @@ module DogMixin
 end
 class A
   include DogMixin
-    # assign "Ara"---Esli roditelyu ne prisvaivati znachenie, to C.dog_name  
-    #vidast error t/k. @@dog_names u nee net
+  # assign "Ara"---Esli roditelyu ne prisvaivati znachenie, to C.dog_name
+  # vidast error t/k. @@dog_names u nee net
 end
 
 class B < A
-  assign "Bob"
+  assign 'Bob'
 end
 
 class C < A
-
 end

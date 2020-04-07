@@ -12,15 +12,13 @@ class Polygon
   #   @sides
   # end
 
-  def sides #pri obrashenii k etomu metodu? vozvrat = nil
-    @sides  # t.k. peremennaya instans LEVEL-CLASS
-  end
+  attr_reader :sides
 end
 
 # pol = Polygon.new
 # # puts pol.sides # ne dostupna peremennaya instans LEVEL-CLASS
 # puts Polygon.sides
-# p 
+# p
 
 # # puts pol.m1("ZHeka and Diana")
 # puts Polygon.m1("Zheka")
@@ -34,11 +32,10 @@ end
 class Rectangle < Polygon
   # @@sides = 4
   @sides = 4
-  @b1 = "b1"
+  @b1 = 'b1'
 end
 
 class Tria < Triangle
-
 end
 
 # Polygon.inheritable_attributes(:m1)
@@ -46,4 +43,3 @@ end
 # puts Polygon.sides
 # puts Triangle.sides
 # puts Rectangle.sides
-

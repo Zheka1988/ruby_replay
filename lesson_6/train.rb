@@ -6,15 +6,15 @@ class Train
   include Manufacturer
 
   @@trains = {}
-  
-  attr_reader :carriages, :type, 
-              :speed, :number, :route 
-  
+
+  attr_reader :carriages, :type,
+              :speed, :number, :route
+
   def self.find(number)
     @@trains[number]
   end
 
-  def initialize (number, type)
+  def initialize(number, type)
     @number = number
     @type = type
     @speed = 0
@@ -28,16 +28,16 @@ class Train
       @carriages << carriage
       puts "Прицеплен Вагон с номером #{carriage.number}"
     else
-      puts "Поезд в движении"
+      puts 'Поезд в движении'
     end
   end
 
   def remove_carriage(carriage)
     if @speed == 0 && !@carriages.empty?
       @carriages.delete(carriage)
-      puts "Вагон отцеплен от поезда"
+      puts 'Вагон отцеплен от поезда'
     else
-      puts "Поезд в движении"
+      puts 'Поезд в движении'
     end
   end
 
@@ -74,7 +74,7 @@ class Train
       current_station.train_left(self)
       @position_station -= 1
       current_station.train_arrived(self)
-    end    
+    end
   end
 
   def next_station
@@ -88,5 +88,4 @@ class Train
   def current_station
     @route.stations[@position_station]
   end
-
 end

@@ -3,25 +3,25 @@ require_relative 'all_objects'
 require_relative 'instance_counter'
 
 class Train
-  include InstanceCounter#::InstanceMethod
+  include InstanceCounter #::InstanceMethod
   include Company
   include All_objects
 
-  attr_reader :carriages, :type, 
-              :speed, :number, :route 
-  
+  attr_reader :carriages, :type,
+              :speed, :number, :route
+
   def self.find(number)
     trains = get_trains
     trains.find { |train| train.number == number }
   end
 
-  def initialize (number, type)
+  def initialize(number, type)
     @number = number
     @type = type
     @speed = 0
     @carriages = []
     self.class.find(number)
-    self.register_instance
+    register_instance
     self.class.instances
   end
 
@@ -30,16 +30,16 @@ class Train
       @carriages << carriage
       puts "Прицеплен Вагон с номером #{carriage.number}"
     else
-      puts "Поезд в движении"
+      puts 'Поезд в движении'
     end
   end
 
   def remove_carriage(carriage)
     if @speed == 0 && !@carriages.empty?
       @carriages.delete(carriage)
-      puts "Вагон отцеплен от поезда"
+      puts 'Вагон отцеплен от поезда'
     else
-      puts "Поезд в движении"
+      puts 'Поезд в движении'
     end
   end
 
@@ -84,7 +84,7 @@ class Train
       current_station.train_left(self)
       @position_station -= 1
       current_station.train_arrived(self)
-    end    
+    end
   end
 
   def next_station
@@ -98,9 +98,7 @@ class Train
   def current_station
     @route.stations[@position_station]
   end
-
 end
-
 
 # Класс Train (Поезд): +
 # Имеет номер (произвольная строка) и тип (грузовой, пассажирский) и количество вагонов, эти данные указываются при создании экземпляра класса +

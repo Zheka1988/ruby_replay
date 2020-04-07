@@ -1,5 +1,5 @@
 class Car
-  attr_accessor :speed 
+  attr_accessor :speed
   attr_reader :engine_volume, :door_title #:drivers
 
   def initialize(speed = 0, engine_volume)
@@ -13,11 +13,11 @@ class Car
   end
 
   def start_engine
-    puts "Wroom!"
+    puts 'Wroom!'
   end
 
   def beep
-    puts "Beep Beep!"
+    puts 'Beep Beep!'
   end
 
   def stop
@@ -48,5 +48,4 @@ class Car
   # def speed=(speed) #setter
   #   @speed = speed
   # end
-
 end

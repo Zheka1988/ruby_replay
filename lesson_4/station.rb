@@ -12,22 +12,20 @@ class Station
     puts "Текущая станция #{@name}"
     # if train.type == "gruz"
     #   self.count_gruz_train += 1
-    # else 
+    # else
     #   self.count_pass_tarin += 1
     # end
   end
 
   def count_by_type(type)
-    @trains.count { |train|  train.type == type }
+    @trains.count { |train| train.type == type }
   end
 
   def train_left(train)
     @trains.delete(train)
     puts "Поезд с номером #{train.number} уехал!!"
   end
-
 end
-
 
 # Имеет название, которое указывается при ее создании +
 # Может принимать поезда (по одному за раз) +

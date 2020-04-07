@@ -1,7 +1,7 @@
 class Train
   attr_reader :past_station, :next_station, :current_station, :type, :speed, :number, :count_railway_carriage, :route
 
-  def initialize (number, type, count_railway_carriage)
+  def initialize(number, type, count_railway_carriage)
     @number = number
     @type = type
     @count_railway_carriage = count_railway_carriage
@@ -48,7 +48,7 @@ class Train
       current_station.train_left(self)
       @position_station -= 1
       current_station.train_arrived(self)
-    end    
+    end
   end
 
   def next_station
@@ -62,9 +62,7 @@ class Train
   def current_station
     @route.stations[@position_station]
   end
-
 end
-
 
 # Класс Train (Поезд): +
 # Имеет номер (произвольная строка) и тип (грузовой, пассажирский) и количество вагонов, эти данные указываются при создании экземпляра класса +

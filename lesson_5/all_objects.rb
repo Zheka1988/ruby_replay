@@ -1,13 +1,13 @@
-module All_objects  
-    @@obj_stations = []
-    @@obj_trains = []
-  
+module All_objects
+  @@obj_stations = []
+  @@obj_trains = []
+
   def all_stations(stations)
     @@obj_stations = stations
   end
 
   def get_stations
-    puts"#{@@obj_stations}"
+    puts @@obj_stations.to_s
   end
 
   def all_trains(trains)
@@ -17,5 +17,4 @@ module All_objects
   def get_trains
     @@obj_trains
   end
-
 end

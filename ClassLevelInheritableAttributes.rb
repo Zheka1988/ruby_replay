@@ -4,27 +4,26 @@ module ClassLevelInheritableAttributes
   end
 
   module ClassMethods
-    def inheritable_attributes(*args) 
-
+    def inheritable_attributes(*args)
       @inheritable_attributes ||= [:inheritable_attributes]
-        if args.include?(:m1)
+      if args.include?(:m1)
+        class_eval %(
+          def #{args[0]}(name) "Hello \#{name}" end
+        )
+        return
+      else
+        @inheritable_attributes += args
+        args.each do |arg|
           class_eval %(
-            def #{args[0]}(name) "Hello \#{name}" end
-          )
-          return
-        else
-          @inheritable_attributes += args          
-          args.each do |arg|
-            class_eval %(
               class << self; attr_accessor :#{arg} end
             )
         end
-      end
+    end
       @inheritable_attributes
     end
 
-# - method ustanavlivaet  znacheniya peremennix podclassa, 
-    #takimi zhe kak u roditelya
+    # - method ustanavlivaet  znacheniya peremennix podclassa,
+    # takimi zhe kak u roditelya
     def inherited(subclass)
       @inheritable_attributes.each do |inheritable_attribute|
         instance_var = "@#{inheritable_attribute}"

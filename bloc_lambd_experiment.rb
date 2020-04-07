@@ -6,6 +6,7 @@ class Flyer
     @email = email
     @miles_flown = miles_flown
   end
+
   def to_s
     "#{name} (#{email}): #{miles_flown}"
   end

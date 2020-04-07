@@ -7,16 +7,16 @@ class Train
   include Valid
 
   @@trains = {}
-  NUMBER_FORMAT = /\A[а-яa-z0-9]{3}\-?[а-яa-z0-9]{2}\Z/ui
-  
-  attr_reader :carriages, :type, 
-              :speed, :number, :route 
-  
+  NUMBER_FORMAT = /\A[а-яa-z0-9]{3}\-?[а-яa-z0-9]{2}\Z/ui.freeze
+
+  attr_reader :carriages, :type,
+              :speed, :number, :route
+
   def self.find(number)
     @@trains[number]
   end
 
-  def initialize (number, type)
+  def initialize(number, type)
     @number = number
     @type = type
     @speed = 0
@@ -25,13 +25,13 @@ class Train
     @@trains[number] = self
     register_instance
   end
-  
+
   def all_carriages
     @carriages.each.with_index(1) { |carriage, index| yield(carriage, index) }
   end
 
   def validate!
-    raise "Не корректно введен номер!" if number !~ NUMBER_FORMAT
+    raise 'Не корректно введен номер!' if number !~ NUMBER_FORMAT
   end
 
   def up_speed(speed)
@@ -67,7 +67,7 @@ class Train
       current_station.train_left(self)
       @position_station -= 1
       current_station.train_arrived(self)
-    end    
+    end
   end
 
   def next_station
@@ -81,7 +81,7 @@ class Train
   def current_station
     @route.stations[@position_station]
   end
-  
+
   def remove_carriage(carriage)
     @carriages.delete(carriage) if @speed == 0 && !@carriages.empty?
   end
@@ -89,5 +89,4 @@ class Train
   def add_carriage(carriage)
     @carriages << carriage if @speed == 0
   end
-
 end

@@ -4,10 +4,10 @@ class String
   end
 
   def my_method
-    self.capitalize
+    capitalize
   end
 
-  def <<(value) #izmememie standartnix metodov
+  def <<(value) # izmememie standartnix metodov
     "#{self} #{value}"
   end
 end

@@ -31,7 +31,7 @@
 # frequencies = frequencies.sort_by {|word, count| count}
 # frequencies.reverse!
 # frequencies.each do |word , count|
-#   puts word+" "+count.to_s  
+#   puts word+" "+count.to_s
 # end
 #----------------------------------------------------
 
@@ -42,41 +42,41 @@
 # puts "You can 'add', 'delete', 'display', 'update' movies."
 # choice = gets.chomp
 # case choice
-# 	when "add"
-# 		puts "Vvedite nazvanie filma!"
-# 		title = gets.chomp
-# 		puts "Kakoy reiting filma"
-# 		rating = gets.chomp
-# 	  	if (movies[title.to_sym] == nil) 
-# 	        movies[title.to_sym]=rating.to_i
-# 	  		puts "Film Added!"
-# 	    else
-# 	        puts "Film exists!"
-# 	    end 		
-# 	when "update"
-# 		puts "Vvedite nazvanie filma!"
-# 		title=gets.chomp
-# 	  	if (movies[title.to_sym] == nil) 
-# 	  		puts "Error, takogo filma net"
-# 	    else
-# 	     	puts "Vvedite noviy reiting filma"
-# 		  	rating = gets.chomp
-# 		    movies[title.to_sym]=rating.to_i
-# 		    puts "Updated"
-# 	    end
-# 	when "display"
-#   		movies.each { |movie, rating| puts "#{movie}: #{rating}" }
-# 	when "delete"
-# 	  	puts "Vvedite nazvanie filma"
-# 	  	title = gets.chomp
-# 	  	if (movies[title.to_sym]== nil)
-# 	    	puts "Net takogo filma"
-# 	    else
-# 	  		movies.delete(title.to_sym)
-# 	    	puts "Film Deleted!"
-# 	    end  
-# 	else
-# 		puts "Error!"
+#   when "add"
+#     puts "Vvedite nazvanie filma!"
+#     title = gets.chomp
+#     puts "Kakoy reiting filma"
+#     rating = gets.chomp
+#       if (movies[title.to_sym] == nil)
+#           movies[title.to_sym]=rating.to_i
+#         puts "Film Added!"
+#       else
+#           puts "Film exists!"
+#       end
+#   when "update"
+#     puts "Vvedite nazvanie filma!"
+#     title=gets.chomp
+#       if (movies[title.to_sym] == nil)
+#         puts "Error, takogo filma net"
+#       else
+#          puts "Vvedite noviy reiting filma"
+#         rating = gets.chomp
+#         movies[title.to_sym]=rating.to_i
+#         puts "Updated"
+#       end
+#   when "display"
+#       movies.each { |movie, rating| puts "#{movie}: #{rating}" }
+#   when "delete"
+#       puts "Vvedite nazvanie filma"
+#       title = gets.chomp
+#       if (movies[title.to_sym]== nil)
+#         puts "Net takogo filma"
+#       else
+#         movies.delete(title.to_sym)
+#         puts "Film Deleted!"
+#       end
+#   else
+#     puts "Error!"
 # end
 #-------------------------------------------------
 
@@ -86,9 +86,9 @@
 #-------------------------------------------------
 
 # def max_element_lambda
-# 	l = lambda { return [1,2,3,4] }
-# 	array = l.call
-# 	return array.max
+#   l = lambda { return [1,2,3,4] }
+#   array = l.call
+#   return array.max
 # end
 # puts max_element_lambda
 # puts "-------------"
@@ -101,10 +101,9 @@
 # lambda_demo(lambda { puts "I'm the lambda!" })
 #-------------------------------------------------
 # def max_element_proc
-# 	p = Proc.new { return [1,2,3,4] }
-# 	array = p.call # zdes' proishodit vozvrat
-# 	puts "Etot kod ne budet vipolnen"
-# 	return array.max 
+#   p = Proc.new { return [1,2,3,4] }
+#   array = p.call # zdes' proishodit vozvrat
+#   puts "Etot kod ne budet vipolnen"
+#   return array.max
 # end
 # print "#{max_element_proc} \n"
-

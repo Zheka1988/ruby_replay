@@ -3,11 +3,11 @@ require_relative 'instance_counter'
 class Station
   extend All_objects
   include InstanceCounter
-  attr_accessor :trains, :name 
+  attr_accessor :trains, :name
   def initialize(name)
     @name = name
     @trains = []
-    self.register_instance
+    register_instance
     self.class.instances
   end
 
@@ -17,7 +17,7 @@ class Station
   end
 
   def count_by_type(type)
-    @trains.count { |train|  train.type == type }
+    @trains.count { |train| train.type == type }
   end
 
   def train_left(train)
@@ -29,7 +29,6 @@ class Station
     get_stations
   end
 end
-
 
 # Имеет название, которое указывается при ее создании +
 # Может принимать поезда (по одному за раз) +

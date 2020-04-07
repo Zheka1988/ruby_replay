@@ -7,7 +7,7 @@ class CargoTrain < Train
     if carriage.type == @type
       super
     else
-      puts "У поезда и вагона разные типы"
+      puts 'У поезда и вагона разные типы'
     end
   end
 end

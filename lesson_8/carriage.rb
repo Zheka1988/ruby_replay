@@ -4,9 +4,9 @@ class Carriage
   include Manufacturer
   include Valid
   attr_accessor :number, :type, :capacity, :occupied_capacity
-  
-  NUMBER_FORMAT = /^\d{4}$/
-  
+
+  NUMBER_FORMAT = /^\d{4}$/.freeze
+
   def initialize(number, type, capacity)
     @capacity = capacity
     @occupied_capacity = 0
@@ -26,8 +26,9 @@ class Carriage
   end
 
   protected
+
   def validate!
-    raise "Вагон может быть пассажирским 'p' или грузовым 'c'" if !@array_type.include?(type) #if type != 'p' && type != 'c' # по логике должно быть или ||
-    raise "Номер вагона состоит из 4 цифр" if number.to_s !~ NUMBER_FORMAT
+    raise "Вагон может быть пассажирским 'p' или грузовым 'c'" unless @array_type.include?(type) # if type != 'p' && type != 'c' # по логике должно быть или ||
+    raise 'Номер вагона состоит из 4 цифр' if number.to_s !~ NUMBER_FORMAT
   end
 end

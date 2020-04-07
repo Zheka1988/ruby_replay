@@ -1,7 +1,6 @@
 class Route
-
   attr_accessor :stations, :number_route
-  
+
   def initialize(first_st, last_st, number)
     # @stations << first_st << last_st
     @stations = [first_st, last_st]
@@ -18,24 +17,19 @@ class Route
       @stations.delete(station)
       show_stations
     else
-      puts "The station can not be removed!!"
+      puts 'The station can not be removed!!'
     end
   end
 
   def show_stations
-    puts "Маршрут содержит станции: "
-    @stations.each.with_index(1) { |station, index| puts  "Station number #{index} - #{station.name}" }
+    puts 'Маршрут содержит станции: '
+    @stations.each.with_index(1) { |station, index| puts "Station number #{index} - #{station.name}" }
   end
 
   def change_number_route(number)
     @number_route = number
   end
-
 end
-
-
-
-
 
 # Класс Route (Маршрут): +
 # Имеет начальную и конечную станцию, а также список промежуточных станций.Начальная и конечная станции указываютсся при создании маршрута, а промежуточные могут добавляться между ними.+

@@ -10,12 +10,6 @@ require_relative 'ceed.rb'
 require_relative 'interface.rb'
 require_relative 'main_interface.rb'
 
-
-face = Interface.new()
+face = Interface.new
 main_interface = MainInterface.new(face)
 main_interface.start
-
-
-
-
-

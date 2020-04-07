@@ -3,15 +3,15 @@ require_relative 'instance_counter'
 class Station
   include InstanceCounter
   include Valid
-  attr_accessor :trains, :name 
-  
-  NAME_STATION = /\A[а-яa-z0-9]{3,10}\Z/i  
+  attr_accessor :trains, :name
+
+  NAME_STATION = /\A[а-яa-z0-9]{3,10}\Z/i.freeze
   @@stations = []
-  
+
   def self.all
     @@stations
   end
-  
+
   def initialize(name)
     @name = name
     @trains = []
@@ -25,8 +25,9 @@ class Station
   end
 
   def train_arrived(train)
-    raise "Не существует такого поезда!" if !(train.class < Train)
-    raise "Поезд стоит на этой станции!" if @trains.find { |tr| puts "verno" if tr.number == train.number}
+    raise 'Не существует такого поезда!' unless train.class < Train
+    raise 'Поезд стоит на этой станции!' if @trains.find { |tr| puts 'verno' if tr.number == train.number }
+
     @trains << train
   rescue Exception => e
     puts e.message
@@ -34,7 +35,7 @@ class Station
   end
 
   def count_by_type(type)
-    @trains.count { |train|  train.type == type }
+    @trains.count { |train| train.type == type }
   end
 
   def train_left(train)
@@ -42,7 +43,8 @@ class Station
   end
 
   protected
+
   def validate!
-    raise "Название станции включает (а-я,a-z,0-9), не зависимо от регистра, кол-во символов от 3 до 10!" if name !~ NAME_STATION
+    raise 'Название станции включает (а-я,a-z,0-9), не зависимо от регистра, кол-во символов от 3 до 10!' if name !~ NAME_STATION
   end
 end

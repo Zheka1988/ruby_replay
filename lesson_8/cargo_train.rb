@@ -7,8 +7,7 @@ class CargoTrain < Train
     if validate?(carriage)
       super
     else
-      puts "У поезда и вагона разные типы"
+      puts 'У поезда и вагона разные типы'
     end
   end
-
 end

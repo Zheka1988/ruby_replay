@@ -6,7 +6,7 @@
 # # puts "You can't do that!"
 # # rescue Exception => e
 # #   puts "Exception: #{e.inspect}"
-#   # puts e.backtrace#.inspect - 
+#   # puts e.backtrace#.inspect -
 # rescue StandardError => e  #-otrabotaet
 #   # puts "Exception: #{e.inspect}"
 #   puts "Error!!!"
@@ -46,14 +46,14 @@
 
 def connect_to_wikipedia
   #----------
-  raise "Connection error"
+  raise 'Connection error'
 end
 
 attempt = 0
 begin
   connect_to_wikipedia
   # puts "There was #{attempt} attempts"
-rescue NoMemoryError#RuntimeError
+rescue NoMemoryError # RuntimeError
   attempt += 1
   # retry if attempt < 3
   # puts "Check your internet connection"

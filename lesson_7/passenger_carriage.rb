@@ -6,7 +6,7 @@ class PassengerCarriage < Carriage
     @occupied_seats = 0
     super(number, 'p')
   end
-  
+
   def take_place
     @occupied_seats += 1
     @free_seats -= @occupied_seats
