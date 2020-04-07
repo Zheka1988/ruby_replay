@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+#rubocop:disable Style/Documentation
 ADDED_OR_MODIFIED = /^\s*(A|AM|M)/.freeze
 
 changed_files = `git status --porcelain`.split(/\n/)
