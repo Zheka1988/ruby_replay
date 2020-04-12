@@ -16,7 +16,7 @@ class Player
   end
 
   def reset_data
-    @cards = []
+    @cards.clear
     @point = 0
     @tuz = 0
   end
