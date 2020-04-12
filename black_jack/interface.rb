@@ -83,21 +83,15 @@ class Interface
 
   def open_cards
     itog_igri
-    if @user.point > @diller.point && @user.point <= 21
-      puts 'Pozdravlyaem vi vigrali'
-      @bank_game.vruchit_viygrish(@user)
-    elsif @user.point < @diller.point && @diller.point <= 21
-      puts 'Vi proigrali'
-      @bank_game.vruchit_viygrish(@diller)
-    elsif @diller.point > 21 && @user.point <= 21
-      puts 'Pozdravlyaem vi vigrali'
-      @bank_game.vruchit_viygrish(@user)
-    elsif @diller.point <= 21 && @user.point > 21
-      puts 'Vi proigrali'
-      @bank_game.vruchit_viygrish(@diller)
-    else
+    if @user.point == @diller.point || (@user.point > 21 && @diller.point > 21)
       puts "Nich'ya"
       @bank_game.vruchit_viygrish(@diller, @user)
+    elsif @user.point > 21 || (@user.point < @diller.point && @diller.point <= 21)
+      puts 'Vi proigrali'
+      @bank_game.vruchit_viygrish(@diller)
+    elsif @user.point > @diller.point || @diller.point > 21
+      puts 'Pozdravlyaem vi vigrali'
+      @bank_game.vruchit_viygrish(@user)
     end
     @hand.next_hod(@user)
     regame
